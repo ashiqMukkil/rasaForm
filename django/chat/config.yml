@@ -1,0 +1,5 @@
+RASA:
+    DOMAIN_PATH: /home/azureuser/Ashiq/ChatBotDevelopment/rasa/domain.yml
+    NLU_PATH: /home/azureuser/Ashiq/ChatBotDevelopment/rasa/data/nlu.yml
+    RULES_PATH: /home/azureuser/Ashiq/ChatBotDevelopment/rasa/data/rules.yml
+    STORIES_PATH: /home/azureuser/Ashiq/ChatBotDevelopment/rasa/data/stories.yml
