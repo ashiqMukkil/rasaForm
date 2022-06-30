@@ -1,0 +1,46 @@
+version: '3.0'
+services:
+  django:
+    build: django
+    command: python manage.py runserver 0.0.0.0:8000
+    networks:
+      - backend
+    ports:
+      - "8000:8000"
+  rasa:
+    build: .
+    ports:
+      - 5005:5005
+    # volumes:
+    #   - ./:/app
+    # command:
+    #   - run
+      # - --cors
+      # - "*"
+      # - --enable-api
+      # - --log-file
+      # - out.log
+  # action_server:
+  #   container_name: "action_server"
+  #   build: 
+  #     context: actions
+  #   volumes:
+  #     - ./actions:/app/actions
+  #     - ./data:/app/data
+  #   ports:
+  #     - 5055:5055
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+  #   volumes:
+  #     - ./nginx: /etc/nginx/conf.d
+  #     - ./certs: /etc/letsencrypt/live/<domain>
+networks:
+  backend:
+    driver: bridge
+
+
+#https://ttt:studio/blog/rasa-chatbot/:

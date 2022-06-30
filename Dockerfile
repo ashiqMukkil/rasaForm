@@ -1,6 +1,6 @@
-FROM rasa/rasa
-COPY * ./
-# WORKDIR /app
-# RUN chmod +x start_services.sh
-CMD start_services.sh
-USER 1000
+FROM ubuntu:20.04
+ENTRYPOINT []
+RUN apt-get update && apt-get install -y python3 python3-pip && python3 -m pip install --no-cache --upgrade pip && pip3 install --no-cache rasa
+ADD . /app/
+RUN chmod +x /app/start_services.sh
+CMD /app/start_services.sh
